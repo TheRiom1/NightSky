@@ -38,15 +38,16 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch("http://localhost:8080/api/v1/dalle", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            prompt: form.prompt,
-          }),
-        });
+        console.log(form)
+        // const response = await fetch("http://localhost:8080/api/v1/dalle", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({
+        //     prompt: form.prompt,
+        //   }),
+        // });
         const data = await response.json();
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {
@@ -60,9 +61,7 @@ const CreatePost = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log(form)
     e.preventDefault();
-    console.log(form)
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
@@ -90,7 +89,7 @@ const CreatePost = () => {
   return (
     <section className="max-w-7xl mx-auto">
       <div>
-        <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
+        <h1 className="font-extrabold text-[#222328] text-[32px]">Generuj</h1>
         <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
           Generate an imaginative image through DALL-E AI and share it with the
           community
@@ -115,10 +114,10 @@ const CreatePost = () => {
             handleChange={handleChange}
           />
           <FormField
-            labelName="Your Name"
+            labelName="Nazwa użytkownika"
             type="text"
             name="name"
-            placeholder="Ex., john doe"
+            placeholder="Vincent van Gogh"
             value={form.name}
             handleChange={handleChange}
           />
@@ -160,23 +159,22 @@ const CreatePost = () => {
         <div className="mt-5 flex gap-5">
           <button
             type="button"
-            //onClick={generateImage}
+            onClick={generateImage}
             className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
-            {generatingImg ? "Generating..." : "Generate"}
+            {generatingImg ? "Generowanie..." : "Generuj"}
           </button>
         </div>
 
         <div className="mt-10">
           <p className="mt-2 text-[#666e75] text-[14px]">
-            ** Once you have created the image you want, you can share it with
-            others in the community **
+            ** Po wygenerowaniu obrazu możesz podzielić się nim z innymi :) **
           </p>
           <button
             type="submit"
             className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
-            {loading ? "Sharing..." : "Share with the Community"}
+            {loading ? "Udostępnianie..." : "Udostępnij społeczności"}
           </button>
         </div>
       </form>
