@@ -114,8 +114,8 @@ const CreatePost = () => {
           <FormRadio
             labelName="Faza księżyca"
             name="moon"
-            options="1,2,3"
-            values="1,2,3"
+            options="1,2,3,4"
+            values="1,2,3,4"
             handleChange={handleChange}
           />
           <FormRadio
@@ -145,7 +145,7 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
+          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-100 p-3 h-100 flex justify-center items-center">
             {form.photo ? (
               <img
                 src={form.photo}

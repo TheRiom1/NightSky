@@ -33,7 +33,7 @@ const FormRadio = ({ labelName, name, options, values, handleChange }) => (
       {labelName}
     </label>
     <div
-      className="grid w-auto grid-cols-4 space-x-2 rounded-xl bg-gray-200 p-2"
+      className={`grid w-auto grid-cols-${options.split(",").length} space-x-2 rounded-xl bg-gray-200 p-2`}
       x-data="app"
     >
       {loop(options, values, name, handleChange)}
