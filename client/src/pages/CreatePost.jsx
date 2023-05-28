@@ -3,7 +3,7 @@ import { Form, useNavigate } from "react-router-dom";
 
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
-import { FormField, Loader, FormSlider } from "../components";
+import { FormField, Loader, FormSlider, FormRadio } from "../components";
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const CreatePost = () => {
     photo: "",
     clody: 0,
     fog: 0,
+    moon: "",
   });
 
   const [generatingImg, setGeneratingImg] = useState(false);
@@ -22,12 +23,9 @@ const CreatePost = () => {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleChangeSliderClody = (e) =>
-    setForm({clody: e.target.value});
+  const handleChangeSliderClody = (e) => setForm({ clody: e.target.value });
 
-    const handleChangeSliderFog = (e) =>
-    setForm({fog: e.target.value});
-
+  const handleChangeSliderFog = (e) => setForm({ fog: e.target.value });
 
   const handleSurpriseMe = () => {
     const randomPrompt = getRandomPrompt(form.prompt);
@@ -38,7 +36,7 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        console.log(form)
+        console.log(form);
         // const response = await fetch("http://localhost:8080/api/v1/dalle", {
         //   method: "POST",
         //   headers: {
@@ -111,6 +109,20 @@ const CreatePost = () => {
             maxValue={10}
             minValue={0}
             value={form.fog}
+            handleChange={handleChange}
+          />
+          <FormRadio
+            labelName="Faza księżyca"
+            name="moon"
+            options="1,2,3"
+            values="1,2,3"
+            handleChange={handleChange}
+          />
+          <FormRadio
+            labelName="Opady"
+            name="opady"
+            options="Deszcz,Śnieg,Inne"
+            values="1,2,3"
             handleChange={handleChange}
           />
           <FormField
