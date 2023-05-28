@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
 
-import { preview } from "../assets";
+import { wizard_1 } from "../assets";
 import { getRandomPrompt } from "../utils";
 import { FormField, Loader, FormSlider, FormRadio } from "../components";
 
@@ -145,7 +145,7 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-100 p-3 h-100 flex justify-center items-center">
+          <div className="relative bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-100 p-3 h-100 flex justify-center items-center">
             {form.photo ? (
               <img
                 src={form.photo}
@@ -154,9 +154,9 @@ const CreatePost = () => {
               />
             ) : (
               <img
-                src={preview}
-                alt="preview"
-                className="w-9/12 h-9/12 object-contain opacity-40"
+                src={wizard_1}
+                alt="wizard_1"
+                className="w-12/12 h-12/12 object-contain opacity-90"
               />
             )}
 
@@ -172,7 +172,7 @@ const CreatePost = () => {
           <button
             type="button"
             onClick={generateImage}
-            className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            className=" text-white bg-amber-500 hover:bg-amber-600 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
             {generatingImg ? "Generowanie..." : "Generuj"}
           </button>
