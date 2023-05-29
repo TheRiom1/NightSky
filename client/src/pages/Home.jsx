@@ -63,12 +63,13 @@ const Home = () => {
   };
 
   return (
+
     <section className="max-w-7xl mx-auto">
       <div class="bg-white">
         <div class=" min-h-[calc(100vh-73px)]">
           <div class="relative isolate overflow-hidden bg-white pt-16 md:pt-24 lg:flex lg:gap-x-20 lg:pt-0">
             <div class="max-w-xl text-center lg:mx-0 lg:flex-auto pt-40 lg:text-left">
-              <h2 class="text-3xl font-bold tracking-tight text-black sm:text-4xl text-center">
+              <h2 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">
                 Witaj w NightSky!
               </h2>
               <p class="mt-6 text-lg leading-8 text-black text-center">
