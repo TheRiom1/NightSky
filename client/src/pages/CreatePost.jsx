@@ -112,18 +112,11 @@ const CreatePost = () => {
             handleChange={handleChange}
           />
           <FormRadio
-            labelName="Faza księżyca"
-            name="moon"
-            options="1,2,3,4"
-            values="1,2,3,4"
-            handleChange={handleChange}
-          />
-          <FormRadio
-            labelName="Opady"
-            name="opady"
-            options="Deszcz,Śnieg,Inne"
-            values="1,2,3"
-            handleChange={handleChange}
+              labelName="Faza księżyca"
+              name="moon"
+              options={['1','2','3','4']}
+              values={['1','2','3','4']}
+              handleChange={handleChange}
           />
           <FormField
             labelName="Nazwa użytkownika"
