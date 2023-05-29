@@ -65,20 +65,19 @@ const Home = () => {
   return (
     <section className="max-w-7xl mx-auto">
       <div class="bg-white">
-        <div class="mx-auto pt-24 sm:px-6 lg:px-8 min-h-[calc(100vh-73px)]">
-          <div class="relative isolate overflow-hidden bg-white px-6 pt-16 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-            <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-              <h2 class="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+        <div class=" min-h-[calc(100vh-73px)]">
+          <div class="relative isolate overflow-hidden bg-white pt-16 md:pt-24 lg:flex lg:gap-x-20 lg:pt-0">
+            <div class="max-w-xl text-center lg:mx-0 lg:flex-auto pt-40 lg:text-left">
+              <h2 class="text-3xl font-bold tracking-tight text-black sm:text-4xl text-center">
                 Witaj w NightSky!
               </h2>
-              <p class="mt-6 text-lg leading-8 text-black">
-                Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
-                Malesuada adipiscing sagittis vel nulla.
+              <p class="mt-6 text-lg leading-8 text-black text-center">
+              Nasza innowacyjna aplikacja, wykorzystująca sztuczną inteligencję, zapewnia fascynującą możliwość generowania realistycznych widoków nocnego nieba. Dzięki zaawansowanym algorytmom, aplikacja pozwala użytkownikom odkryć i zanurzyć się w wirtualnej przestrzeni kosmicznej.
               </p>
-              <div class="mt-10 flex items-center justify-center lg:justify-start">
+              <div class="mt-10 flex items-center justify-center">
                 <a
                   href="/create-post"
-                  class="rounded-md bg-amber-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-amber-600"
+                  class="rounded-md bg-amber-500 px-10 py-5 text-sm font-semibold text-xl text-white shadow-sm hover:bg-amber-600"
                 >
                   Generuj
                 </a>
@@ -86,7 +85,7 @@ const Home = () => {
             </div>
             <div class="relative mt-16 h-100 lg:mt-8 w-[57rem]">
               <img
-                class="bg-white align-middle"
+                class="bg-white align-middle h-200 w-200"
                 src={wizard_2}
                 alt="App screenshot"
               />
@@ -98,7 +97,7 @@ const Home = () => {
         <h1 className="font-extrabold text-[#222328] text-[32px]">
           Twórczość społeczności
         </h1>
-        <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
+        <p className="mt-2 text-[#666e75] max-w-[600px] text-lg leading-8">
           Przeglądaj kolekcję pomysłowych i wizualnie oszałamiających obrazów
           wygenerowanych przez DALL-E API
         </p>
