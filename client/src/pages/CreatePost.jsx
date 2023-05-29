@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
 
-import { preview } from "../assets";
+import { wizard_1 } from "../assets";
 import { getRandomPrompt } from "../utils";
-import { FormField, Loader, FormSlider } from "../components";
+import { FormField, Loader, FormSlider, FormRadio } from "../components";
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const CreatePost = () => {
     photo: "",
     clody: 0,
     fog: 0,
+    moon: "",
   });
 
   const [generatingImg, setGeneratingImg] = useState(false);
@@ -22,12 +23,9 @@ const CreatePost = () => {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleChangeSliderClody = (e) =>
-    setForm({clody: e.target.value});
+  const handleChangeSliderClody = (e) => setForm({ clody: e.target.value });
 
-    const handleChangeSliderFog = (e) =>
-    setForm({fog: e.target.value});
-
+  const handleChangeSliderFog = (e) => setForm({ fog: e.target.value });
 
   const handleSurpriseMe = () => {
     const randomPrompt = getRandomPrompt(form.prompt);
@@ -38,15 +36,16 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch("http://localhost:8080/api/v1/dalle", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            prompt: form.prompt,
-          }),
-        });
+        console.log(form);
+        // const response = await fetch("http://localhost:8080/api/v1/dalle", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({
+        //     prompt: form.prompt,
+        //   }),
+        // });
         const data = await response.json();
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {
@@ -60,9 +59,7 @@ const CreatePost = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log(form)
     e.preventDefault();
-    console.log(form)
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
@@ -90,7 +87,7 @@ const CreatePost = () => {
   return (
     <section className="max-w-7xl mx-auto">
       <div>
-        <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
+        <h1 className="font-extrabold text-[#222328] text-[32px]">Generuj</h1>
         <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
           Generate an imaginative image through DALL-E AI and share it with the
           community
@@ -114,11 +111,25 @@ const CreatePost = () => {
             value={form.fog}
             handleChange={handleChange}
           />
+          <FormRadio
+            labelName="Faza księżyca"
+            name="moon"
+            options="1,2,3,4"
+            values="1,2,3,4"
+            handleChange={handleChange}
+          />
+          <FormRadio
+            labelName="Opady"
+            name="opady"
+            options="Deszcz,Śnieg,Inne"
+            values="1,2,3"
+            handleChange={handleChange}
+          />
           <FormField
-            labelName="Your Name"
+            labelName="Nazwa użytkownika"
             type="text"
             name="name"
-            placeholder="Ex., john doe"
+            placeholder="Vincent van Gogh"
             value={form.name}
             handleChange={handleChange}
           />
@@ -134,7 +145,7 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
+          <div className="relative bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-100 p-3 h-100 flex justify-center items-center">
             {form.photo ? (
               <img
                 src={form.photo}
@@ -143,9 +154,9 @@ const CreatePost = () => {
               />
             ) : (
               <img
-                src={preview}
-                alt="preview"
-                className="w-9/12 h-9/12 object-contain opacity-40"
+                src={wizard_1}
+                alt="wizard_1"
+                className="w-12/12 h-12/12 object-contain opacity-90"
               />
             )}
 
@@ -160,23 +171,22 @@ const CreatePost = () => {
         <div className="mt-5 flex gap-5">
           <button
             type="button"
-            //onClick={generateImage}
-            className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            onClick={generateImage}
+            className=" text-white bg-amber-500 hover:bg-amber-600 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
-            {generatingImg ? "Generating..." : "Generate"}
+            {generatingImg ? "Generowanie..." : "Generuj"}
           </button>
         </div>
 
         <div className="mt-10">
           <p className="mt-2 text-[#666e75] text-[14px]">
-            ** Once you have created the image you want, you can share it with
-            others in the community **
+            ** Po wygenerowaniu obrazu możesz podzielić się nim z innymi :) **
           </p>
           <button
             type="submit"
             className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           >
-            {loading ? "Sharing..." : "Share with the Community"}
+            {loading ? "Udostępnianie..." : "Udostępnij społeczności"}
           </button>
         </div>
       </form>
