@@ -27,7 +27,7 @@ export default function DiscreteSlider({minValue, maxValue, name, labelName, han
     const classes = useStyles();
 
     return (
-        <Box sx={{width: 500}}>
+        <Box>
             <label
                 htmlFor={name}
                 className="block text-sm font-medium text-gray-900"
