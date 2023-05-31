@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
 
 import { wizard_1 } from "../assets";
-import { getRandomPrompt } from "../utils";
+import { getRandomPrompt, createPrompt } from "../utils";
 import { FormField, Loader, FormSlider, FormRadio } from "../components";
 
 const CreatePost = () => {
@@ -23,10 +23,6 @@ const CreatePost = () => {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleChangeSliderClody = (e) => setForm({ clody: e.target.value });
-
-  const handleChangeSliderFog = (e) => setForm({ fog: e.target.value });
-
   const handleSurpriseMe = () => {
     const randomPrompt = getRandomPrompt(form.prompt);
     setForm({ ...form, prompt: randomPrompt });
@@ -36,18 +32,19 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        console.log(form);
+        let newPrompt = createPrompt(form);
+        console.log(newPrompt);
         // const response = await fetch("http://localhost:8080/api/v1/dalle", {
         //   method: "POST",
         //   headers: {
         //     "Content-Type": "application/json",
         //   },
         //   body: JSON.stringify({
-        //     prompt: form.prompt,
+        //     prompt: newPrompt,
         //   }),
         // });
-        const data = await response.json();
-        setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
+        //const data = await response.json();
+        //setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {
         alert(err);
       } finally {
