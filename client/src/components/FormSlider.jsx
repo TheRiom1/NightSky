@@ -20,7 +20,7 @@ const CustomSlider = withStyles({
 })(Slider);
 
 function valuetext(value) {
-    return `${value}°C`;
+    return value;
 }
 
 export default function DiscreteSlider({minValue, maxValue, name, labelName, handleChange}) {
@@ -36,7 +36,7 @@ export default function DiscreteSlider({minValue, maxValue, name, labelName, han
             </label>
             <CustomSlider sx={{height: 10}}
                           aria-label={labelName}
-                          defaultValue={30}
+                          defaultValue={0}
                           getAriaValueText={valuetext}
                           valueLabelDisplay="auto"
                           step={1}
