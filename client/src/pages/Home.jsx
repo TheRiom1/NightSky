@@ -65,28 +65,28 @@ const Home = () => {
   return (
 
     <section className="max-w-7xl mx-auto">
-      <div class="bg-white">
-        <div class=" min-h-[calc(100vh-73px)]">
-          <div class="relative isolate overflow-hidden bg-white pt-16 md:pt-24 lg:flex lg:gap-x-20 lg:pt-0">
-            <div class="max-w-xl text-center lg:mx-0 lg:flex-auto pt-40 lg:text-left">
-              <h2 class="max-w-2xl mb-4 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">
+      <div className="bg-white">
+        <div className=" min-h-[calc(100vh-73px)]">
+          <div className="relative isolate overflow-hidden bg-white pt-16 md:pt-24 lg:flex lg:gap-x-20 lg:pt-0">
+            <div className="max-w-xl text-center lg:mx-0 lg:flex-auto pt-40 lg:text-left">
+              <h2 className="max-w-2xl mb-4 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">
                 Witaj w NightSky!
               </h2>
-              <p class="mt-6 text-lg leading-8 text-black text-center">
+              <p className="mt-6 text-lg leading-8 text-black text-center">
               Nasza innowacyjna aplikacja, wykorzystująca sztuczną inteligencję, zapewnia fascynującą możliwość generowania realistycznych widoków nocnego nieba. Dzięki zaawansowanym algorytmom, aplikacja pozwala użytkownikom odkryć i zanurzyć się w wirtualnej przestrzeni kosmicznej.
               </p>
-              <div class="mt-10 flex items-center justify-center">
+              <div className="mt-10 flex items-center justify-center">
                 <a
                   href="/create-post"
-                  class="rounded-md bg-amber-500 px-10 py-5 text-sm font-semibold text-xl text-white shadow-sm hover:bg-amber-600"
+                  className="rounded-md bg-amber-500 px-10 py-5 text-sm font-semibold text-xl text-white shadow-sm hover:bg-amber-600"
                 >
                   Generuj
                 </a>
               </div>
             </div>
-            <div class="relative mt-16 h-100 lg:mt-8 w-[57rem]">
+            <div className="relative mt-16 h-100 lg:mt-8 w-[57rem]">
               <img
-                class="bg-white align-middle h-200 w-200"
+                className="bg-white align-middle h-200 w-200"
                 src={wizard_2}
                 alt="App screenshot"
               />
