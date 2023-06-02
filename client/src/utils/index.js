@@ -13,7 +13,7 @@ export function getRandomPrompt(prompt) {
 export async function downloadImage(_id, photo) {
   FileSaver.saveAs(photo, `download-${_id}.jpg`);
 }
-
+//todo dodać do prompta że chodzi o nocne niebo
 export function createPrompt(form) {
   let fogValue = "";
   let clodyValue = "";

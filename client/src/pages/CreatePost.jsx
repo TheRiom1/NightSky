@@ -43,15 +43,15 @@ const CreatePost = () => {
         //     prompt: newPrompt,
         //   }),
         // });
-        //const data = await response.json();
-        //setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
+        const data = await response.json();
+        setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {
         alert(err);
       } finally {
         setGeneratingImg(false);
       }
     } else {
-      alert("Please provide proper prompt");
+      alert("Proszę podaj prawidłowy prompt.");
     }
   };
 
@@ -92,6 +92,14 @@ const CreatePost = () => {
       </div>
       <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-5">
+          <FormField
+              labelName="Nazwa użytkownika"
+              type="text"
+              name="name"
+              placeholder="Vincent van Gogh"
+              value={form.name}
+              handleChange={handleChange}
+          />
           <FormSlider
             labelName="Zachmurzenie: "
             name="clody"
@@ -114,14 +122,6 @@ const CreatePost = () => {
               options={['1','2','3','4']}
               values={['1','2','3','4']}
               handleChange={handleChange}
-          />
-          <FormField
-            labelName="Nazwa użytkownika"
-            type="text"
-            name="name"
-            placeholder="Vincent van Gogh"
-            value={form.name}
-            handleChange={handleChange}
           />
           <FormField
             labelName="Prompt"

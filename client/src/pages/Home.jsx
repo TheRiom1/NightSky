@@ -135,7 +135,7 @@ const Home = () => {
                   title="No Search Results Found"
                 />
               ) : (
-                <RenderCards data={allPosts} title="No Posts Yet" />
+                <RenderCards data={allPosts} title="Brak postów użytkowników - bądź pierwszy!" />
               )}
             </div>
           </>
