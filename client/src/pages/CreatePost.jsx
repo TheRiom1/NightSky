@@ -12,6 +12,7 @@ const CreatePost = () => {
     name: "",
     prompt: "",
     photo: "",
+    stars: "",
     clody: 0,
     fog: 0,
     moon: "",
@@ -82,12 +83,13 @@ const CreatePost = () => {
     <section className="max-w-7xl mx-auto">
       <div>
         <h1 className="font-extrabold text-[#222328] text-[32px]">Generuj</h1>
-        <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
+        <p className="mt-2 text-[#666e75] text-[14px]">
           Twórz niezwykłe obrazy nocnego nieba dzięki wykorzystaniu AI oraz szczypty magii od naszego czarodzieja i podziel się nimi z społecznością!
         </p>
       </div>
-      <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-5">
+      <form className="mt-16" onSubmit={handleSubmit}>
+        <div className="flex flex-col gap-5 md:grid md:grid-cols-12 md:grid-rows-1">
+          <div className="col-span-6 row-span-1 flex flex-col gap-5">
           <FormField
               labelName="Nazwa użytkownika"
               type="text"
@@ -96,12 +98,11 @@ const CreatePost = () => {
               value={form.name}
               handleChange={handleChange}
           />
-          <FormSlider
-            labelName="Zachmurzenie: "
-            name="clody"
-            maxValue={10}
-            minValue={0}
-            value={form.clody}
+          <FormRadio
+            labelName="Poziom gwiaździstości:"
+            name="stars"
+            options={['mało gwiazd','umiarkowanie','rozświetlone niebo']}
+            values={['1','2','3']}
             handleChange={handleChange}
           />
           <FormSlider
@@ -112,11 +113,19 @@ const CreatePost = () => {
             value={form.fog}
             handleChange={handleChange}
           />
+          <FormSlider
+              labelName="Zachmurzenie: "
+              name="clody"
+              maxValue={10}
+              minValue={0}
+              value={form.clody}
+              handleChange={handleChange}
+          />
           <FormRadio
               labelName="Faza księżyca"
               name="moon"
-              options={['1','2','3','4']}
-              values={['1','2','3','4']}
+              options={['1','2','3','4','5','6','7','8']}
+              values={['','2','3','4','5','6','7','8']}
               handleChange={handleChange}
           />
           <FormField
@@ -130,8 +139,17 @@ const CreatePost = () => {
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
           />
-
-          <div className="relative bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-100 p-3 h-100 flex justify-center items-center">
+            <div className="mt-5 flex gap-5 w-100">
+              <button
+                  type="button"
+                  onClick={generateImage}
+                  className=" text-white bg-amber-500 hover:bg-amber-600 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+              >
+                {generatingImg ? "Generowanie..." : "Generuj"}
+              </button>
+            </div>
+          </div>
+          <div className="col-span-6 relative bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-100 p-3 h-100 flex justify-center items-center">
             {form.photo ? (
               <img
                 src={form.photo}
@@ -142,7 +160,7 @@ const CreatePost = () => {
               <img
                 src={wizard_1}
                 alt="wizard_1"
-                className="w-12/12 h-12/12 object-contain opacity-90"
+                className="object-contain opacity-90"
               />
             )}
 
@@ -153,17 +171,6 @@ const CreatePost = () => {
             )}
           </div>
         </div>
-
-        <div className="mt-5 flex gap-5">
-          <button
-            type="button"
-            onClick={generateImage}
-            className=" text-white bg-amber-500 hover:bg-amber-600 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
-          >
-            {generatingImg ? "Generowanie..." : "Generuj"}
-          </button>
-        </div>
-
         <div className="mt-10">
           <p className="mt-2 text-[#666e75] text-[14px]">
             ** Po wygenerowaniu obrazu możesz podzielić się nim z innymi :) **

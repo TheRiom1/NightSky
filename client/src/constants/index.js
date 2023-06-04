@@ -46,9 +46,9 @@ export const surpriseMePrompts = [
   'A man wanders through the rainy streets of Tokyo, with bright neon signs, 50mm',
   'A Space Shuttle flying above Cape Town, digital art',
 ];
-//todo dodać pozostałe fazy księżyca, ikonki od nich
 export const weatherData = {
-  moon: ['new moon', 'first quarter moon', 'full moon', 'last quarter moon'],
+  moon: ['new moon', 'waxing crescent', 'first quarter', 'waxing gibbous', 'full moon', 'waning gibbous', 'third quarter', 'waning crescent'],
   clody: ['slightly cloudy', 'partly cloudy', 'mostly cloudy', 'very cloudy'],
-  fog: ['slightly foggy', 'moderately foggy', 'very foggy']
+  fog: ['slightly foggy', 'moderately foggy', 'very foggy'],
+  stars: ['', 'moderately starry ', 'heavily starry']
 };
