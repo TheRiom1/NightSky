@@ -29,20 +29,19 @@ const CreatePost = () => {
   };
 
   const generateImage = async () => {
-    if (form.prompt) {
       try {
         setGeneratingImg(true);
         let newPrompt = createPrompt(form);
         console.log(newPrompt);
-        // const response = await fetch("http://localhost:8080/api/v1/dalle", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({
-        //     prompt: newPrompt,
-        //   }),
-        // });
+        const response = await fetch("http://localhost:8080/api/v1/dalle", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: newPrompt,
+          }),
+        });
         const data = await response.json();
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {
@@ -50,22 +49,20 @@ const CreatePost = () => {
       } finally {
         setGeneratingImg(false);
       }
-    } else {
-      alert("Proszę podaj prawidłowy prompt.");
-    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (form.prompt && form.photo) {
+    if (form.photo) {
       setLoading(true);
+      let newPrompt = createPrompt(form);
       try {
         const response = await fetch("http://localhost:8080/api/v1/post", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ ...form }),
+          body: JSON.stringify({ ...form, prompt: newPrompt}),
         });
 
         await response.json();
@@ -77,7 +74,7 @@ const CreatePost = () => {
         setLoading(false);
       }
     } else {
-      alert("Please generate an image with proper details");
+      alert("");
     }
   };
 
@@ -86,8 +83,7 @@ const CreatePost = () => {
       <div>
         <h1 className="font-extrabold text-[#222328] text-[32px]">Generuj</h1>
         <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
-          Generate an imaginative image through DALL-E AI and share it with the
-          community
+          Twórz niezwykłe obrazy nocnego nieba dzięki wykorzystaniu AI oraz szczypty magii od naszego czarodzieja i podziel się nimi z społecznością!
         </p>
       </div>
       <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>

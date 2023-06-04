@@ -49,11 +49,14 @@ export function createPrompt(form) {
   } else if (form.moon == 4) {
     moonValue = weatherData.moon[3];
   }
-
+//The stars twinkle above like a million diamonds in the night sky
+  //a photo of the night sky with a lot of stars and a beautiful landscape and the moon in the background, telephoto photography
+  //floating among the stars
   if (fogValue || clodyValue || moonValue) {
     return (
-      form.prompt +
-      ", with " +
+        'High quality photo of a night sky with' +
+      form.prompt ? form.prompt : '' +
+      ", and " +
       fogValue +
       (fogValue && clodyValue ? ` and ${clodyValue}` : clodyValue) +
       (fogValue || clodyValue ? " weather" : "") +
