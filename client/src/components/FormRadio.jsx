@@ -36,7 +36,7 @@ const FormRadio = ({ labelName, name, options, values, handleChange }) => {
 						/>
 						<label
 							htmlFor={name + '-' + values[index]}
-							className='block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white'>
+							className='flex peer:checked:bg-indigo-500 peer-checked:bg-indigo-500 justify-center items-center cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white'>
 							{option.label ? (
 								option.label
 							) : (
