@@ -50,5 +50,4 @@ export const weatherData = {
   moon: ['new moon', 'waxing crescent', 'first quarter', 'waxing gibbous', 'full moon', 'waning gibbous', 'third quarter', 'waning crescent'],
   clody: ['slightly cloudy', 'partly cloudy', 'mostly cloudy', 'very cloudy'],
   fog: ['slightly foggy', 'moderately foggy', 'very foggy'],
-  stars: ['', 'moderately starry ', 'heavily starry']
 };
