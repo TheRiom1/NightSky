@@ -110,18 +110,6 @@ const CreatePost = () => {
 							value={form.name}
 							handleChange={handleChange}
 						/>
-						<FormRadio
-							labelName='Poziom gwiaździstości:'
-							name='stars'
-							options={[
-								{ label: 'mało gwiazd' },
-								{ label: 'umiarkowanie' },
-								{ label: 'rozświetlone niebo' },
-							]}
-							values={['1', '2', '3']}
-							handleChange={handleChange}
-						/>
-
 						<FormSlider
 							labelName='Gęstość mgły: '
 							name='fog'
