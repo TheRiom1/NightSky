@@ -14,8 +14,12 @@ const CustomSlider = withStyles({
         backgroundImage: "linear-gradient(to right, #12c2e9, #c471ed, #f64f59)",
     },
     track: {
-        backgroundImage: "linear-gradient(to right, #12c2e9, #c471ed, #f64f59)",
+        backgroundImage: "linear-gradient(to right, #12c2e9, #c471ed, #6365f1)",
         border: "none !important"
+    },
+    thumb:{
+        backgroundImage: "linear-gradient(to right, #6365f1, #7c7ef2, #6365f1)",
+        backgroundColor: "#6365f1;"
     }
 })(Slider);
 
