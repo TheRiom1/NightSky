@@ -88,7 +88,7 @@ const Home = () => {
               <img
                 className="bg-white align-middle h-200 w-200"
                 src={wizard_2}
-                alt="App screenshot"
+                alt="NightSky Wizard"
               />
             </div>
           </div>
@@ -124,7 +124,7 @@ const Home = () => {
           <>
             {searchText && (
               <h2 className="font-medium text-[#666e75] text-xl mb-3">
-                Showing Resuls for{" "}
+                Wyniki dla{" "}
                 <span className="text-[#222328]">{searchText}</span>:
               </h2>
             )}
@@ -132,7 +132,7 @@ const Home = () => {
               {searchText ? (
                 <RenderCards
                   data={searchedResults}
-                  title="No Search Results Found"
+                  title="Nie znaleziono szukanej frazy :("
                 />
               ) : (
                 <RenderCards data={allPosts} title="Brak postów użytkowników - bądź pierwszy!" />
