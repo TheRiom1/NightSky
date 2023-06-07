@@ -20970,3 +20970,4 @@ server/node_modules/yocto-queue/license
 server/node_modules/yocto-queue/package.json
 server/node_modules/yocto-queue/readme.md
 server/.env
+ignore node modules

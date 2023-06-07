@@ -6,7 +6,9 @@ Funkcje:
 - Generowanie obrazów na podstawie określonych parametrów.
 - Udostępnianie wygenerowanych obrazów.
 - Możliwość zaskoczenia użytkownika poprzez generowanie losowego promptu.
-  Instalacja:
+
+Instalacja:
+
 - Sklonuj repozytorium
 - Zainstaluj zależności za pomocą npm install
 - Uruchom serwer deweloperski w terminalu za pomocą:
