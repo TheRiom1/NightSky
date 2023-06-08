@@ -44,6 +44,7 @@ const FormRadio = ({ labelName, name, options, values, handleChange }) => {
 									className='w-[80px] h-[80px] object-cover'
 									src={option.src}
 									alt={option.alt}
+									title={option.title}
 								/>
 							)}
 						</label>
