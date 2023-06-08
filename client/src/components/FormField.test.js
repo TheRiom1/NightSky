@@ -41,7 +41,7 @@ describe('FormField', () => {
 		expect(handleChange).toHaveBeenCalled(); // Sprawdzenie, czy funkcja obsługująca zmianę została wywołana
 	});
 
-	// Sprawdzanie, czy przycisk "Zaskocz mnie" jest wyświetlany i obsługuje kliknięcie
+	// Sprawdzanie, czy przycisk "Zaskocz mnie - Suprise Me" jest wyświetlany i obsługuje kliknięcie
 	it('Wyświetla i obsługuje przycisk "Zaskocz mnie"', () => {
 		const handleSurpriseMe = jest.fn(); // mock funkcji obsługującej kliknięcie przycisku
 		const { getByText } = render(
