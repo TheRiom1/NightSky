@@ -22,11 +22,12 @@ test('Poprawnie renderuje FormRadio.', () => {
 		/>
 	);
 
-	// Oczekujemy, że elementy z danymi tekstami będą obecne w dokumencie
-	expect(screen.getByLabelText('Test Radio')).toBeInTheDocument();
-	expect(screen.getByText('Option 1')).toBeInTheDocument();
-	expect(screen.getByText('Option 2')).toBeInTheDocument();
-	expect(screen.getByText('Option 3')).toBeInTheDocument();
+	// Oczekujemy, że etykieta "Test Radio" będzie obecna w dokumencie
+	expect(screen.getByText('Test Radio')).toBeInTheDocument();
+	// Oczekujemy, że poszczególne przyciski radio będą obecne w dokumencie
+	expect(screen.getByRole('radio', { name: /option 1/i })).toBeInTheDocument();
+	expect(screen.getByRole('radio', { name: /option 2/i })).toBeInTheDocument();
+	expect(screen.getByRole('radio', { name: /option 3/i })).toBeInTheDocument();
 });
 
 // Test sprawdza, czy funkcja handleChange jest wywoływana, gdy klikniemy na opcję

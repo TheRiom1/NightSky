@@ -67,8 +67,8 @@ export function createPrompt(form) {
     if (fogValue || clodyValue || moonValue) {
         return (
             form.prompt + ' ' +
-            'high quality photo of a'
-            + ' night sky and ' +
+            'hyper-realistic photo of a'
+            + ' night sky with stars and ' +
             fogValue +
             (fogValue && clodyValue ? `and ${clodyValue}` : clodyValue) +
             (fogValue || clodyValue ? " weather" : "") +
