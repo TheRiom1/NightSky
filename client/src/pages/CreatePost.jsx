@@ -64,6 +64,12 @@ const CreatePost = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		//Walidacja nazwy użytkownika
+		if (form.name.trim() === '') {
+			alert('Nazwa użytkownika jest wymagana.');
+			return;
+		}
+
 		if (form.photo) {
 			setLoading(true);
 			let newPrompt = createPrompt(form);
@@ -85,7 +91,7 @@ const CreatePost = () => {
 				setLoading(false);
 			}
 		} else {
-			alert('');
+			alert('Proszę wygenerować obraz przed udostępnieniem.');
 		}
 	};
 
