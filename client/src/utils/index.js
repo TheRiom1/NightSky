@@ -61,9 +61,7 @@ export function createPrompt(form) {
     if (!form.prompt) {
         form.prompt = ''
     }
-//The stars twinkle above like a million diamonds in the night sky
-    //a photo of the night sky with a lot of stars and a beautiful landscape and the moon in the background, telephoto photography
-    //floating among the stars
+
     if (fogValue || clodyValue || moonValue) {
         return (
             form.prompt + ' ' +

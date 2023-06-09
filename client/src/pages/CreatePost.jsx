@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { wizard_1 } from '../assets';
-import {
-	moon_phase_1,
-	moon_phase_2,
-	moon_phase_3,
-	moon_phase_4,
-	moon_phase_5,
-	moon_phase_6,
-	moon_phase_7,
-	moon_phase_8,
-} from '../assets';
+import {moon_phase_1, moon_phase_2, moon_phase_3, moon_phase_4, moon_phase_5, moon_phase_6, moon_phase_7, moon_phase_8} from '../assets';
 import { getRandomPrompt, createPrompt } from '../utils';
 import { FormField, Loader, FormSlider, FormRadio } from '../components';
 

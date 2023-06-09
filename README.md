@@ -6,13 +6,8 @@ Projekt jest aplikacją React.js służącą do generowania i udostępniania obr
 - Generowanie obrazów na podstawie określonych parametrów.
 - Udostępnianie wygenerowanych obrazów.
 - Możliwość zaskoczenia użytkownika poprzez generowanie losowego promptu.
-<<<<<<< HEAD:readme.md
 
-Instalacja:
-
-=======
 ## Instalacja:
->>>>>>> main:README.md
 - Sklonuj repozytorium
 - Zainstaluj zależności za pomocą npm install
 - Uruchom serwer deweloperski w terminalu za pomocą:
