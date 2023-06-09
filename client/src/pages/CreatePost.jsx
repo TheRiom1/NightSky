@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { wizard_1 } from '../assets';
-import {moon_phase_1, moon_phase_2, moon_phase_3, moon_phase_4, moon_phase_5, moon_phase_6, moon_phase_7, moon_phase_8} from '../assets';
+import {
+	moon_phase_1,
+	moon_phase_2,
+	moon_phase_3,
+	moon_phase_4,
+	moon_phase_5,
+	moon_phase_6,
+	moon_phase_7,
+	moon_phase_8,
+} from '../assets';
 import { getRandomPrompt, createPrompt } from '../utils';
 import { FormField, Loader, FormSlider, FormRadio } from '../components';
 
@@ -33,6 +42,7 @@ const CreatePost = () => {
 		try {
 			setGeneratingImg(true);
 			let newPrompt = createPrompt(form);
+
 			console.log(newPrompt);
 			const response = await fetch('http://localhost:8080/api/v1/dalle', {
 				method: 'POST',
@@ -43,8 +53,20 @@ const CreatePost = () => {
 					prompt: newPrompt,
 				}),
 			});
-			const data = await response.json();
-			setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
+
+			const contentType = response.headers.get('content-type');
+			if (contentType && contentType.indexOf('application/json') !== -1) {
+				const data = await response.json();
+				setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
+			} else {
+				const errorText = await response.text();
+
+				if (errorText === 'You must provide a prompt.') {
+					alert('Musisz zmienić chociaż jedną z opcji w formularzu.');
+				} else {
+					alert(`Error: ${errorText}`);
+				}
+			}
 		} catch (err) {
 			alert(err);
 		} finally {
@@ -126,14 +148,38 @@ const CreatePost = () => {
 							labelName='Faza księżyca'
 							name='moon'
 							options={[
-								{ src: moon_phase_1, alt: 'Moon phase 1', title: "new moon" },
-								{ src: moon_phase_2, alt: 'Moon phase 2', title: "waxing crescent" },
-								{ src: moon_phase_3, alt: 'Moon phase 3', title: "first quarter" },
-								{ src: moon_phase_4, alt: 'Moon phase 4', title: "waxing gibbous" },
-								{ src: moon_phase_5, alt: 'Moon phase 5', title: "full moon" },
-								{ src: moon_phase_6, alt: 'Moon phase 6', title: "waning gibbous" },
-								{ src: moon_phase_7, alt: 'Moon phase 7', title: "third quarter" },
-								{ src: moon_phase_8, alt: 'Moon phase 8', title: "waning crescent" },
+								{ src: moon_phase_1, alt: 'Moon phase 1', title: 'new moon' },
+								{
+									src: moon_phase_2,
+									alt: 'Moon phase 2',
+									title: 'waxing crescent',
+								},
+								{
+									src: moon_phase_3,
+									alt: 'Moon phase 3',
+									title: 'first quarter',
+								},
+								{
+									src: moon_phase_4,
+									alt: 'Moon phase 4',
+									title: 'waxing gibbous',
+								},
+								{ src: moon_phase_5, alt: 'Moon phase 5', title: 'full moon' },
+								{
+									src: moon_phase_6,
+									alt: 'Moon phase 6',
+									title: 'waning gibbous',
+								},
+								{
+									src: moon_phase_7,
+									alt: 'Moon phase 7',
+									title: 'third quarter',
+								},
+								{
+									src: moon_phase_8,
+									alt: 'Moon phase 8',
+									title: 'waning crescent',
+								},
 							]}
 							values={['1', '2', '3', '4', '5', '6', '7', '8']}
 							handleChange={handleChange}
