@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Form, useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import { wizard_1 } from '../assets';
 import {
 	moon_phase_1,
