@@ -55,7 +55,7 @@ const CreatePost = () => {
 				if (errorText === 'You must provide a prompt.') {
 					alert('Musisz zmienić chociaż jedną z opcji w formularzu.');
 				} else {
-					alert(`Error: ${errorText}`);
+					alert(`Błąd podczas generowania zdjęcia: ${errorText}`);
 				}
 			}
 		} catch (err) {
