@@ -54,7 +54,7 @@ export function createPrompt(form) {
         moonValue = weatherData.moon[5];
     } else if (form.moon == 7) {
         moonValue = weatherData.moon[6];
-    } else if (form.moon == 9) {
+    } else if (form.moon == 8) {
         moonValue = weatherData.moon[7];
     }
 
